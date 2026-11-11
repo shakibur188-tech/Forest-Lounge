@@ -51,3 +51,11 @@ Official source, retrieved 11 November 2026:
 - https://theforestlounge.com/en/contact-us — contact information.
 
 Test products and test prices from the official site were deliberately excluded. No active discounts, invented reviews, capacity claims or buffet prices are asserted. The published menu may change; guests are asked to confirm current prices and availability. All initial copy is editable through the dashboard. Editorial design copy and the original leaf favicon are part of this implementation.
+
+## Current reference rebuild
+
+The public front end was rebuilt from the supplied Fidalgo Meet the Chef reference's observed composition: inset banner, split desktop header with centered wordmark, fine vertical guides, portrait and overlapping food detail, narrow text column, translucent character reveals, curved second feature image, cursive booking prompt, and three-column footer. The native pointer is retained, matching the supplied page (it does not enable Fidalgo's gallery-only custom cursor). Motion is reimplemented in authored JavaScript/CSS, without the commercial theme runtime. Reduced motion remains supported.
+
+The navigation now exposes `/menu/`, `/events/`, and `/offers/` as distinct pages; legacy root hash links are forwarded. `/about/` and `/meet-the-chef/` use the same reference composition as the home page. Restaurant information and bookings still use the existing CMS and D1 database.
+
+`assets/dining-banner.jpg` is illustrative food photography from Unsplash: https://images.unsplash.com/photo-1544025162-d76694265947 (https://unsplash.com/license). Other restaurant and kitchen images remain sourced from the supplied Forest Lounge website. The banner is not a representation of a specific menu item.

@@ -6,7 +6,8 @@ export default {
  async fetch(request,env){
   const url=new URL(request.url);if(url.pathname.startsWith('/api/'))return handleApi(request,env);
   if(!['GET','HEAD'].includes(request.method))return new Response('Method not allowed',{status:405});
-  const path=['/about','/about/'].includes(url.pathname)?'/about.html':url.pathname==='/'?'/index.html':url.pathname==='/admin'||url.pathname==='/admin/'?'/admin.html':url.pathname;
+  const routes={'/':'/index.html','/about':'/about.html','/about/':'/about.html','/meet-the-chef/':'/about.html','/menu':'/menu.html','/menu/':'/menu.html','/events':'/events.html','/events/':'/events.html','/offers':'/offers.html','/offers/':'/offers.html','/admin':'/admin.html','/admin/':'/admin.html'};
+  const path=routes[url.pathname]||url.pathname;
   const asset=assets[path];if(!asset)return new Response('Not found',{status:404,headers:{'Content-Type':'text/plain','X-Content-Type-Options':'nosniff'}});
   const ext=path.split('.').pop();const headers={'Content-Type':mime[ext]||'application/octet-stream','Cache-Control':ext==='html'?'no-store':'public, max-age=3600','X-Content-Type-Options':'nosniff','Referrer-Policy':'strict-origin-when-cross-origin','Content-Security-Policy':csp,'Permissions-Policy':'camera=(), microphone=(), geolocation=()'};
   return new Response(request.method==='HEAD'?null:Uint8Array.from(atob(asset),c=>c.charCodeAt(0)),{headers});

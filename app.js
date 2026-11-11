@@ -38,7 +38,7 @@ navToggle.onclick=()=>{const open=navToggle.getAttribute('aria-expanded')!=='tru
 nav.addEventListener('click',e=>{if(e.target.closest('a')){nav.classList.remove('open');navToggle.setAttribute('aria-expanded','false');navToggle.setAttribute('aria-label','Open menu');navToggle.textContent='☰';}});
 window.addEventListener('scroll',()=>$('.site-header').classList.toggle('scrolled',scrollY>50),{passive:true});
 const observer=new IntersectionObserver(entries=>{for(const e of entries)if(e.isIntersecting)nav.querySelectorAll('a').forEach(a=>a.classList.toggle('active',a.hash==='#'+e.target.id));},{rootMargin:'-20% 0px -60% 0px'});
-if(document.body.dataset.page!=='about') ['home','about','events','menu','offers'].forEach(id=>{const section=document.getElementById(id);if(section)observer.observe(section);});
+if(!['about','reference'].includes(document.body.dataset.page)) ['home','about','events','menu','offers'].forEach(id=>{const section=document.getElementById(id);if(section)observer.observe(section);});
 function showDialog(dialog){dialog.showModal();document.body.classList.add('modal-open');}
 document.querySelectorAll('dialog').forEach(d=>{d.addEventListener('close',()=>document.body.classList.remove('modal-open'));d.addEventListener('click',e=>{if(e.target===d){const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close();}});});
 document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>b.closest('dialog').close());
