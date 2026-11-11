@@ -4,6 +4,8 @@ A responsive restaurant website and staff dashboard with a full-width photograph
 
 ## Features
 
+- `/about/`: standalone Forest Lounge story page, following the supplied PatioTime About reference structure with readable Inter type, alternating photography sections, a photo strip, and working reservation/menu dialogs. Its story, buffet, events and contact information use the same CMS content as the home page.
+
 - Fixed full-width navigation; mobile menu; restaurant story, buffet, events, offers, scroll-snap photo gallery, FAQs and contact sections.
 - Original restaurant photography, logo and 23-page menu sourced from the supplied official website.
 - Reservation requests saved server-side, with references and a staff-managed lifecycle. Requests are not automatically confirmed. No email/SMS integrations or notifications are configured.
