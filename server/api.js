@@ -10,7 +10,8 @@ async function body(req){const raw=await req.text();if(raw.length>100000)error('
 function originCheck(req){const origin=req.headers.get('origin');if(!origin||origin!==new URL(req.url).origin)error('This action must be made from the website.',403);}
 function admin(req,env){const id=req.headers.get('oai-authenticated-user-id');const email=req.headers.get('oai-authenticated-user-email')?.toLowerCase();const allow=(env.ADMIN_EMAILS||'').toLowerCase().split(',').map(s=>s.trim()).filter(Boolean);return Boolean(id&&email&&allow.includes(email));}
 async function hash(session){if(!text(session,80)||!/^[\w-]{10,80}$/.test(session))error('Please refresh the page and try again.');const bytes=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(today()+':'+session));return [...new Uint8Array(bytes)].map(x=>x.toString(16).padStart(2,'0')).join('');}
-async function getContent(db){const row=await db.prepare('SELECT data, revision, updated_at FROM site_content WHERE id = 1').first();return row?{content:JSON.parse(row.data),revision:row.revision,updatedAt:row.updated_at}:{content:defaultContent,revision:0,updatedAt:null};}
+function normalizeContent(saved){return {...defaultContent,...saved,homepage:{...defaultContent.homepage,...saved.homepage},reviews:saved.reviews??defaultContent.reviews};}
+async function getContent(db){const row=await db.prepare('SELECT data, revision, updated_at FROM site_content WHERE id = 1').first();return row?{content:normalizeContent(JSON.parse(row.data)),revision:row.revision,updatedAt:row.updated_at}:{content:defaultContent,revision:0,updatedAt:null};}
 export function validateContent(c){
  if(!c||typeof c!=='object'||Array.isArray(c))error('Invalid content.');
  const groups=['hero','about','buffet','menu','events','offersIntro','visit','contact'];
@@ -24,6 +25,8 @@ export function validateContent(c){
  for(const item of c.menuItems){if(!text(item.name,150)||!item.name.trim()||!text(item.description,1000)||!text(item.category,100)||!text(item.price,20)||!/^\d*(\.\d{1,2})?$/.test(item.price)||typeof item.available!=='boolean')error('Please check dish names, descriptions and prices.');}
  for(const o of c.offers){if(!text(o.title,150)||!o.title.trim()||!text(o.description,1500)||!text(o.label,100)||!text(o.terms,1000)||typeof o.active!=='boolean')error('Please check offer details.');for(const key of ['startDate','endDate'])if(o[key]&&!/^\d{4}-\d{2}-\d{2}$/.test(o[key]))error('Please check offer dates.');if(o.startDate&&o.endDate&&o.startDate>o.endDate)error('Offer end date must be after its start date.');}
  for(const g of c.gallery)if(!safeUrl(g.image)||!text(g.caption,200))error('Please check gallery image URLs and captions.');
+ if(c.homepage!==undefined){if(!c.homepage||typeof c.homepage!=='object'||Array.isArray(c.homepage))error('Please check homepage settings.');for(const key of Object.keys(defaultContent.homepage)){if(!text(c.homepage[key],2000))error('Please check homepage '+key+'.');if(/Video$|Poster$/.test(key)&&!safeUrl(c.homepage[key]))error('Please enter valid homepage media URLs.');}}
+ if(c.reviews!==undefined){if(!Array.isArray(c.reviews)||c.reviews.length>30)error('Please check guest reviews.');for(const r of c.reviews){if(!text(r.name,100)||!r.name.trim()||!text(r.quote,1000)||!r.quote.trim()||typeof r.active!=='boolean'||!text(r.source,1000)||r.source&&!/^https:\/\/[^\s]+$/i.test(r.source))error('Please check review names, quotes and source URLs.');}}
  return c;
 }
 export async function handleApi(req,env){

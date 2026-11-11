@@ -32,6 +32,7 @@ function render() {
  function filter(category){$('#menu-filters')?.querySelectorAll('button').forEach(b=>{const selected=b.textContent===category;b.classList.toggle('selected',selected);b.setAttribute('aria-pressed',String(selected));});$('#menu-items')?.replaceChildren(...items.filter(x=>category==='All'||(x.category||'Favourites')===category).map(x=>{const dish=node('article','dish');const copy=node('div');copy.append(node('h3','',x.name),node('p','',x.description));dish.append(copy,node('span','dish-price',x.price?'৳ '+x.price:'Ask our team'));return dish;}));}
  $('#menu-filters')?.replaceChildren(...categories.map(c=>{const b=node('button','',c);b.onclick=()=>filter(c);return b;}));filter('All');
  $('#social-links').replaceChildren(...['facebook','instagram'].filter(k=>content.contact[k]).map(k=>{const a=node('a','',k[0].toUpperCase()+k.slice(1)+' ↗');a.href=content.contact[k];a.target='_blank';a.rel='noopener noreferrer';return a;}));
+ document.dispatchEvent(new CustomEvent('forest:content',{detail:content}));
 }
 const navToggle=$('.nav-toggle'),nav=$('#nav');
 navToggle.onclick=()=>{const open=navToggle.getAttribute('aria-expanded')!=='true';nav.classList.toggle('open',open);navToggle.setAttribute('aria-expanded',String(open));navToggle.setAttribute('aria-label',open?'Close menu':'Open menu');navToggle.textContent=open?'×':'☰';};

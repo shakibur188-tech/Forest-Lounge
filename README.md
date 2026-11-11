@@ -59,3 +59,11 @@ The public front end was rebuilt from the supplied Fidalgo Meet the Chef referen
 The navigation now exposes `/menu/`, `/events/`, and `/offers/` as distinct pages; legacy root hash links are forwarded. `/about/` and `/meet-the-chef/` use the same reference composition as the home page. Restaurant information and bookings still use the existing CMS and D1 database.
 
 `assets/dining-banner.jpg` is illustrative food photography from Unsplash: https://images.unsplash.com/photo-1544025162-d76694265947 (https://unsplash.com/license). Other restaurant and kitchen images remain sourced from the supplied Forest Lounge website. The banner is not a representation of a specific menu item.
+
+## Complete homepage sequence
+
+The home page now includes a muted looping background video, chef and cuisine sections, an infinite image-backed dining carousel, a second kitchen film with native playback controls, current/upcoming scheduled offers, attributed guestbook excerpts, and Contact Now / Book a Table calls to action. Videos stop off-screen and when the page is hidden. Reduced-motion and data-saving visitors get a poster until they choose playback. The dining carousel supports drag/swipe, arrow keys, pagination, pause/play and fine-pointer drag feedback. It pauses autoplay on hover, focus and reduced motion.
+
+Homepage video URLs/posters, section headings and guestbook entries are editable in Website Content. Existing stored content is merged with new defaults without replacing restaurant edits. Scheduled offers appear on the home page as soon as staff publishes them; future start dates are labelled as upcoming. No promotions are fabricated. Quotes are brief excerpts from the restaurant's published guestbook at https://theforestlounge.com/en, with source links.
+
+Video footage (illustrative, not filmed at Forest Lounge): Kampus Production on Pexels, https://www.pexels.com/video/a-chef-cooking-food-in-the-kitchen-8626269/ and https://www.pexels.com/video/chef-cooking-in-the-kitchen-8626675/. These free-use clips are edited to lightweight, silent H.264 loops under the Pexels licence (https://www.pexels.com/license/). Assets are served locally with correct MP4 MIME types and HTTP byte-range support for playback and seeking.

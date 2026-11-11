@@ -94,5 +94,36 @@
       "image": "/assets/photo-7.jpg",
       "caption": "Made for sharing."
     }
+  ],
+  "homepage": {
+    "heroVideo": "/assets/hero-kitchen.mp4",
+    "heroPoster": "/assets/hero-kitchen-poster.jpg",
+    "storyVideo": "/assets/kitchen-story.mp4",
+    "storyPoster": "/assets/kitchen-story-poster.jpg",
+    "storyTitle": "A little care, in every moment.",
+    "offersTitle": "Upcoming offers",
+    "reviewsTitle": "Words from our guests",
+    "contactTitle": "Your next Forest Lounge moment.",
+    "contactText": "A table, a celebration, or a question. Our team would love to hear from you."
+  },
+  "reviews": [
+    {
+      "name": "H.M. ROCKY",
+      "quote": "Superb food, exceedingly good staff.",
+      "source": "https://theforestlounge.com/en",
+      "active": true
+    },
+    {
+      "name": "SOYKAT",
+      "quote": "Very attentive and polite.",
+      "source": "https://theforestlounge.com/en",
+      "active": true
+    },
+    {
+      "name": "ANIK",
+      "quote": "Our wonderful dining experience.",
+      "source": "https://theforestlounge.com/en",
+      "active": true
+    }
   ]
 }
