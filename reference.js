@@ -8,7 +8,7 @@
  const ghosts=[...document.querySelectorAll('[data-letters]')];
  ghosts.forEach(ghost=>{const text=ghost.textContent;ghost.textContent='';[...text].forEach((letter,index)=>{const span=document.createElement('span');span.className='letter';span.style.setProperty('--letter-index',index);span.textContent=letter===' '?'\u00a0':letter;ghost.append(span);});});
  const images=[...document.querySelectorAll('.reference-reveal')];
- const fades=[...document.querySelectorAll('.reference-signature,.reference-script-link')];
+ const fades=[...document.querySelectorAll('.reference-signature,.reference-script-link,.footer-contact-grid')];
  let observer;
  function configureMotion(){
   observer?.disconnect();
