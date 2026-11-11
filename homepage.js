@@ -2,7 +2,12 @@
  const root=document.querySelector('.home-video-hero');if(!root)return;
  const q=selector=>document.querySelector(selector),reduced=matchMedia('(prefers-reduced-motion: reduce)');
  const create=(tag,className,text)=>{const el=document.createElement(tag);if(className)el.className=className;if(text!==undefined)el.textContent=text;return el;};
- const hero=q('#hero-video'),story=q('#story-video'),heroButton=q('#hero-video-toggle');
+ const hero=q('#hero-video'),story=q('#story-video'),heroButton=q('#hero-video-toggle'),visitVideo=q('#visit-mocktail-video'),visitToggle=q('#visit-video-toggle');
+ let visitPausedByUser=false;
+ function syncVisitToggle(){if(!visitToggle)return;visitToggle.textContent=visitVideo.paused?'Play video':'Pause video';visitToggle.setAttribute('aria-label',visitVideo.paused?'Play mocktail video':'Pause mocktail video');visitToggle.setAttribute('aria-pressed',String(visitVideo.paused));}
+ function manageVisitVideo(){if(!visitVideo)return;if(!visitPausedByUser&&!reduced.matches&&!document.hidden)visitVideo.play().catch(syncVisitToggle);else visitVideo.pause();}
+ if(visitVideo){visitToggle.onclick=()=>{visitPausedByUser=!visitVideo.paused;if(visitVideo.paused){visitPausedByUser=false;visitVideo.play().catch(()=>q('#visit-video-status').textContent='Video playback is unavailable.');}else visitVideo.pause();};visitVideo.addEventListener('play',syncVisitToggle);visitVideo.addEventListener('pause',syncVisitToggle);visitVideo.addEventListener('error',()=>{q('#visit-video-status').textContent='The mocktail film is temporarily unavailable.';visitToggle.textContent='Video unavailable';visitToggle.disabled=true;});}
+ document.addEventListener('visibilitychange',manageVisitVideo);reduced.addEventListener('change',manageVisitVideo);
  let heroPausedByUser=false,heroVisible=true,storySeen=false;
  function syncHeroButton(){heroButton.textContent=hero.paused?'Play video':'Pause video';heroButton.setAttribute('aria-label',hero.paused?'Play background video':'Pause background video');heroButton.setAttribute('aria-pressed',String(hero.paused));}
  function manageHero(){if(!heroPausedByUser&&!reduced.matches&&!navigator.connection?.saveData&&heroVisible&&!document.hidden)hero.play().catch(syncHeroButton);else hero.pause();}
@@ -15,7 +20,7 @@
  function setMedia(video,url,poster){if(url&&video.querySelector('source').getAttribute('src')!==url){video.querySelector('source').src=url;video.load();}if(poster)video.poster=poster;}
  const eventTrack=q('#home-offer-list');
  function renderHome(data){
-  const config=data.homepage||{};setMedia(hero,config.heroVideo,config.heroPoster);setMedia(story,config.storyVideo,config.storyPoster);manageHero();
+  const config=data.homepage||{};setMedia(hero,config.heroVideo,config.heroPoster);setMedia(story,config.storyVideo,config.storyPoster);if(visitVideo)setMedia(visitVideo,config.visitVideo,config.visitPoster);manageHero();manageVisitVideo();
   if(q('#upcoming-offers h2').textContent==='Upcoming offers')q('#upcoming-offers h2').textContent='Upcoming events';
   renderEvents(data);
   const map=q('#visit-map');if(map&&data.contact.address)map.src='https://maps.google.com/maps?q='+encodeURIComponent('The Forest Lounge '+data.contact.address)+'&z=15&output=embed';
@@ -63,5 +68,5 @@
  showcase.addEventListener('pointermove',event=>{if(!fine.matches||reduced.matches||event.target.closest('.showcase-controls')){showcase.classList.remove('custom-pointer');return;}const bounds=showcase.getBoundingClientRect();targetX=event.clientX-bounds.left;targetY=event.clientY-bounds.top;if(!showcase.classList.contains('custom-pointer')){cursorX=targetX;cursorY=targetY;}showcase.classList.add('custom-pointer');if(!cursorFrame)cursorFrame=requestAnimationFrame(moveCursor);});
  addEventListener('resize',()=>positionTrack(),{passive:true});document.addEventListener('visibilitychange',()=>{manageHero();resetAutoplay();if(document.hidden)story.pause();});reduced.addEventListener('change',()=>{manageHero();resetAutoplay();showcase.classList.remove('custom-pointer');});
  if(typeof content!=='undefined'&&content)renderHome(content);
- positionTrack();syncHeroButton();manageHero();
+ positionTrack();syncHeroButton();manageHero();manageVisitVideo();
 })();

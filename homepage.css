@@ -147,3 +147,19 @@
 @media(max-width:800px){.event-carousel-controls{gap:12px}.event-carousel-controls>span:not(#event-position){font-size:11px;letter-spacing:.02em}#event-position{padding-left:10px}.visit-reference{grid-template-columns:1fr}.visit-map-panel{padding:40px 7% 45px}.reference-site .visit-map-panel h2{font-size:28px;letter-spacing:.14em;margin-bottom:30px}.visit-map-frame{width:100%;height:470px;max-width:none}.visit-details-panel{padding:55px 7% 65px}.visit-reference-photo{max-width:450px;aspect-ratio:4/5;margin:0 auto}.visit-reference-copy{max-width:450px;margin:25px auto 0}.reference-site .visit-reference-copy p,.visit-reference-copy a{font-size:15px;line-height:1.75}}
 @media(max-width:430px){.event-carousel-controls{gap:10px}.event-carousel-controls button{width:42px;height:40px}.event-carousel-controls .event-scroll-cue{display:none}#event-position{font-size:11px}.visit-map-frame{height:420px}}
 @media(hover:hover) and (pointer:fine){.map-fallback:hover{background:#142749;color:#fff}.event-carousel-controls button:not(:disabled):hover{background:#b58c6728}}
+/* Video replaces the Visit Us photograph; forest greens follow the supplied logo. */
+.reference-site .home-video-hero{height:calc(100svh - 140px);min-height:600px}
+.visit-reference{background:#08291c;color:#d8e2d6}
+.visit-map-panel{background:#143d2b}
+.visit-details-panel{background:#08291c}
+.visit-map-frame{background:#234f3a}
+.visit-map-frame iframe{filter:grayscale(1) invert(.92) sepia(.2) hue-rotate(65deg) saturate(1.4) brightness(.85) contrast(.92)}
+.map-fallback{background:#0b2d20ed;border-color:#74a08766;color:#e2e9de}
+.visit-video-frame{width:100%;aspect-ratio:364/449;position:relative;overflow:hidden;background:#143d2b}
+.visit-reference-video{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+#visit-video-toggle{position:absolute;bottom:12px;right:12px;padding:8px 11px;border:1px solid #d4e2c980;background:#08291cbb;color:#edf0e6;font:400 11px/1.5 Jost,sans-serif;letter-spacing:.04em;cursor:pointer}
+.reference-site .visit-reference-copy p,.visit-reference-copy a{color:#d8e2d6}
+.reference-site .visit-reference .button{border-color:#76a286;color:#edf0e6}
+@media(hover:hover) and (pointer:fine){.map-fallback:hover,#visit-video-toggle:hover{background:#24573c;color:#fff}.reference-site .visit-reference .button:hover{background:#376e5330;border-color:#8cb89a}}
+@media(max-width:1200px){.reference-site .home-video-hero{height:calc(100svh - 110px);min-height:560px}}
+@media(max-width:800px){.reference-site .home-video-hero{height:calc(100svh - 90px);min-height:520px}.visit-video-frame{max-width:450px;margin:0 auto;aspect-ratio:4/5}}

@@ -2,7 +2,7 @@ const $=(s,root=document)=>root.querySelector(s);
 let content,revision=0,dirty=false,currentView='overview',reservations=[];
 const titles={overview:'Your restaurant, at a glance.',content:'Words that welcome.',menu:'A menu worth exploring.',offers:'Make the next moment special.',reservations:'Your next guests.',settings:'Every little detail.'};
 const fields={
- homepage:{visitImage:'Visit Us side photograph URL',heroVideo:'Hero background video URL',heroPoster:'Hero poster image URL',storyVideo:'Second video URL',storyPoster:'Second video poster URL',storyTitle:'Second video heading',offersTitle:'Upcoming events heading',reviewImage:'Guest review photo URL',reviewCaption:'Script caption beside guest photo',reviewsTitle:'Reviews heading',contactTitle:'Contact section heading',contactText:'Contact invitation'},
+ homepage:{visitVideo:'Visit Us mocktail video URL',visitPoster:'Visit Us video poster URL',heroVideo:'Hero background video URL',heroPoster:'Hero poster image URL',storyVideo:'Second video URL',storyPoster:'Second video poster URL',storyTitle:'Second video heading',offersTitle:'Upcoming events heading',reviewImage:'Guest review photo URL',reviewCaption:'Script caption beside guest photo',reviewsTitle:'Reviews heading',contactTitle:'Contact section heading',contactText:'Contact invitation'},
  hero:{title:'First heading line',accent:'Accent heading line',eyebrow:'Location / eyebrow',description:'Welcome description',image:'Hero image URL'},
  about:{eyebrow:'Eyebrow',title:'Heading',accent:'Accent heading',description:'Your story',detail:'Second paragraph',image:'Story image URL'},
  buffet:{title:'Heading',accent:'Accent heading',description:'Buffet description',note:'Availability / price information',image:'Buffet image URL'},

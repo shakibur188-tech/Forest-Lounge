@@ -263,3 +263,7 @@ body.admin-body .admin-header,body.admin-body .sidebar-bottom{border-color:#c9a5
  .about-section-flourish{font-size:40px}
 }
 @media(prefers-reduced-motion:reduce){body.editorial *,body.admin-body *{animation:none!important;transition:none!important}}
+/* Supplied Forest Lounge mark, with a light backing for faithful green contrast. */
+.admin-body .brand img,.admin-body .auth-gate>img{object-fit:contain;height:95px;width:100px;background:#f4f1e8;padding:7px}
+.admin-body .auth-gate>img{height:145px;width:135px}
+@media(hover:hover){.admin-body .stat,.admin-body .admin-card{transition:box-shadow .3s,border-color .3s}.admin-body .stat:hover,.admin-body .admin-card:hover{border-color:#b58c6770;box-shadow:0 8px 22px #00170e18}}

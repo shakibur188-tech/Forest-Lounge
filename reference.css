@@ -25,3 +25,27 @@ body.reference-site{background:#102b2a;color:#ced8d8;font:300 17px/1.6470588235 
 @media(min-width:1201px){.reference-portrait{width:94%}.reference-chef-copy{padding-left:7%}.reference-experience-copy{padding-left:30%;padding-right:3%}.reference-featured-photo{width:92%;margin-left:5%}}
 .footer-contact-grid>div+div:before{height:130px;transform-origin:top;transition:transform 1.4s cubic-bezier(.25,.46,.45,.94)}
 @media(prefers-reduced-motion:no-preference){.footer-contact-grid.reference-fade:not(.appeared)>div+div:before{transform:scaleY(0)}.footer-contact-grid.appeared>div+div:before{transform:scaleY(1)}}
+/* Persistent brand header: stays visible in either scroll direction. */
+html{scroll-padding-top:135px}
+body.reference-site #main{padding-top:120px;scroll-margin-top:130px}
+body.reference-site .site-header,body.reference-site .site-header.sticky-return,body.reference-site .site-header.sticky-hidden{position:fixed!important;top:0;left:0;right:0;height:120px;background:#102b2af5;border-bottom:1px solid #376e5355;transform:none!important;animation:none;backdrop-filter:blur(12px);z-index:40;transition:background .3s,box-shadow .3s}
+body.reference-site .site-header.is-scrolled{background:#0d261ffb;box-shadow:0 6px 25px #00170d30}
+body.reference-site .site-header .reference-brand,body.reference-site .site-header.sticky-return .reference-brand{top:5px;padding:5px 9px;background:#f4f1e8;border:1px solid #376e5338;width:98px;height:110px;max-height:none}
+.forest-brand-logo{display:block;object-fit:contain!important;width:100%;height:100%}
+body.reference-site .site-header .forest-brand-logo{width:78px;height:98px;object-fit:contain}
+body.reference-site .reference-footer{padding:40px 8% 35px}
+body.reference-site .reference-footer .footer-brand-row{margin:0 auto 30px}
+body.reference-site .reference-footer .reference-brand{width:138px;height:155px;background:#f4f1e8;padding:10px 15px}
+body.reference-site .reference-footer .forest-brand-logo{width:108px;height:135px}
+body.reference-site .site-header.sticky-return+main{padding-top:120px}
+body.reference-site .reference-banner{scroll-margin-top:135px}
+@media(max-width:1200px){body.reference-site .site-header,body.reference-site .site-header.sticky-return{height:90px;padding:0 24px}body.reference-site .site-header .reference-brand,body.reference-site .site-header.sticky-return .reference-brand{width:78px;height:80px;top:5px;padding:4px 7px}body.reference-site .site-header .forest-brand-logo{width:62px;height:72px}body.reference-site .site-header nav{top:90px}body.reference-site #main,body.reference-site .site-header.sticky-return+main{padding-top:90px}html{scroll-padding-top:105px}}
+@media(max-width:800px){body.reference-site .site-header{padding:0 16px}body.reference-site .reference-footer{padding:35px 7% 30px}body.reference-site .reference-footer .reference-brand{width:118px;height:136px}body.reference-site .reference-footer .forest-brand-logo{width:95px;height:112px}}
+/* Consistent, subtle movement and hover feedback across pages. */
+.reference-site .button,.reference-site button,.reference-site a{transition:color .25s,background-color .25s,border-color .25s,box-shadow .3s,transform .3s}
+.reference-site .reference-story-photo img,.reference-site .reference-featured-photo>img,.reference-site .reference-portrait>img:first-child{transition:transform .8s cubic-bezier(.2,.65,.3,1),filter .6s}
+.reference-site .reference-story-photo,.reference-site .reference-featured-photo{isolation:isolate}
+.reference-site .site-header nav a:focus-visible,.reference-site .button:focus-visible{outline:2px solid #b58c67;outline-offset:5px}
+@media(hover:hover) and (pointer:fine){.reference-site .button:hover{background:#b58c671a;box-shadow:0 7px 18px #00171120;transform:translateY(-2px)}.reference-site .reference-story-photo:hover img,.reference-site .reference-featured-photo:hover>img{transform:scale(1.02);filter:brightness(1)}.reference-site .reference-top:hover{transform:translateY(-3px)}.reference-site .footer-links a:hover{transform:translateY(-2px)}}
+@media(prefers-reduced-motion:no-preference){.reference-site .site-motion-ready{opacity:0;transform:translateY(18px);transition:opacity .8s cubic-bezier(.2,.65,.3,1),transform .8s cubic-bezier(.2,.65,.3,1)}.reference-site .site-motion-ready.site-motion-visible{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.reference-site .site-motion-ready{opacity:1;transform:none;transition:none}.reference-site *{animation:none!important;transition:none!important}}

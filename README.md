@@ -79,3 +79,11 @@ Reviews use the supplied screenshot's two-panel composition: dining photograph a
 The homepage testimonial block has been replaced by the supplied Visit Us reference's navy split layout: a Google Maps embed for the Forest Lounge address, an editable side photograph, actual restaurant contacts/hours and a View Map link. Google frame origins are explicitly allowed in the Worker CSP. Previous review content is retained in the CMS rather than deleted.
 
 Event posters are displayed at 1080:1350 (4:5), with the expected upload dimensions labelled in admin. Uploaded originals are cropped in the browser to preserve the layout; their source files are not resampled. The carousel supports mouse wheel / trackpad input, pointer dragging, touch swipe, keyboard arrows and visible left/right controls with a scroll cue. Wheel input is released back to page scrolling at either end.
+
+## Fixed header, Fine Dine and supplied branding
+
+The public header now remains fixed and visible in both scroll directions; all pages reserve space for it and anchor offsets account for its height. Fine Dine is the navigation and page name, with `/fine-dine/` as the linked URL; `/menu/` remains compatible. Public sections and dynamically rendered event cards use subtle reveal effects and hover feedback with reduced-motion support.
+
+The supplied Forest Lounge logo is used in the header/footer and admin interface; its black backdrop was removed to prepare a transparent website asset. The redundant three-column footer contact block was removed. Visit Us now uses forest greens derived from the supplied mark and a muted looping mocktail video, with pause control and a poster fallback. Its video URL/poster are editable in Website Content.
+
+Mocktail clip: Peggy Anke, Pexels, https://www.pexels.com/video/top-view-of-a-mocktail-drink-5348512/ (https://www.pexels.com/license/), illustrative lemon-lime soda over ice. The local silent H.264 clip is served with HTTP range support.
