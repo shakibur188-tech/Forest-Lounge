@@ -1,1 +1,16 @@
-{"name":"forest-lounge","version":"2.0.0","private":true,"type":"module","scripts":{"dev":"node scripts/dev.mjs","build":"node scripts/build.mjs","start":"node scripts/dev.mjs","test":"node --test tests/*.test.mjs"},"engines":{"node":">=22.13"}}
+{
+  "name": "forest-lounge",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "node scripts/build.mjs",
+    "start": "node scripts/dev.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "package": "node scripts/package.mjs"
+  },
+  "engines": {
+    "node": ">=22.13"
+  }
+}

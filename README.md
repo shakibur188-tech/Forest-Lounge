@@ -34,6 +34,8 @@ npm run build
 
 `.openai/hosting.json` retains the Sites project ID and D1 binding. Set `ADMIN_EMAILS` as a secret containing the comma-separated approved staff ChatGPT email addresses. Every admin API request checks both dispatch identity and the allowlist. Admin sessions use Sites' platform-managed sign-in; no passwords or login tokens are stored in the client. Keep the Site private until approved for public launch. Visitor and staff access are separate concerns; public visitors must never be added to `ADMIN_EMAILS`.
 
+`npm run package` creates the deployment archive with the manifest, build output, and root-level Drizzle migration journal.
+
 `npm run build` embeds the website and local assets in `dist/server/index.js` and packages SQL migrations. Deploy with Sites using its source/version/deployment workflow. The old Vercel static build configuration is not applicable to this full-stack Worker application.
 
 `drizzle/0000_forest.sql` creates the content, reservations and aggregated activity schema. Production migrations are applied by Sites; no schema changes run during requests. Back up production records before future schema or hosting changes. The API applies basic repeated-request protection, but the application is not a payment or live table-availability system. Staff must contact guests directly. Reservation export should be handled as personal customer data.
