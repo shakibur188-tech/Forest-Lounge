@@ -1,10 +1,10 @@
 # The Forest Lounge
 
-A responsive restaurant website and staff dashboard with a luxury forest-green, brass and glass visual system. Built with HTML/CSS/JavaScript and a Cloudflare Worker API backed by D1. Node.js 22.13+ is required for local development. No third-party runtime packages are needed.
+A responsive restaurant website and staff dashboard with a full-width photographic layout, a muted forest-green palette, oversized Inter typography, and an editorial composition inspired by the supplied design reference. Built with HTML/CSS/JavaScript and a Cloudflare Worker API backed by D1. Node.js 22.13+ is required for local development. No third-party runtime packages are needed.
 
 ## Features
 
-- Fixed floating glass navigation; mobile menu; restaurant story, buffet, events, offers, gallery and contact sections.
+- Fixed full-width navigation; mobile menu; restaurant story, buffet, events, offers, scroll-snap photo gallery, FAQs and contact sections.
 - Original restaurant photography, logo and 23-page menu sourced from the supplied official website.
 - Reservation requests saved server-side, with references and a staff-managed lifecycle. Requests are not automatically confirmed. No email/SMS integrations or notifications are configured.
 - `/admin`: approved ChatGPT staff identity required in production. Edit headings, copy, photos, contact details, hours, gallery, menu pages, dishes, occasions and scheduled offers. Edits publish immediately without rebuilding. Concurrent edits are protected with content revisions.
