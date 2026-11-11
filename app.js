@@ -62,7 +62,7 @@ if($('#gallery-prev')) $('#gallery-prev').onclick=()=>moveGallery(-1);if($('#gal
 
 // Reveal content once as it enters the viewport; never delay reduced-motion users.
 const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
-const revealTargets = document.querySelectorAll('.about-visual, .about-copy, .manifesto, .dining-index, .buffet-copy, .menu-copy, .menu-feature-image, .events-content, .offers-section, .gallery-title, .faq-section, .visit-info, .visit-heading, .about-introduction, .about-highlights, .about-feature, .about-contact');
+const revealTargets = document.querySelectorAll('.about-visual, .about-copy, .manifesto, .dining-index, .buffet-copy, .menu-copy, .menu-feature-image, .events-content, .offers-section, .gallery-title, .faq-section, .visit-info, .visit-heading, .about-introduction, .about-highlights, .about-feature, .about-contact, .chef-copy, .chef-portrait');
 let revealObserver;
 function configureReveals() {
  if (revealObserver) revealObserver.disconnect();

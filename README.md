@@ -1,10 +1,10 @@
 # The Forest Lounge
 
-A responsive restaurant website and staff dashboard with a full-width photographic layout, a muted forest-green palette, oversized Inter typography, and an editorial composition inspired by the supplied design reference. Built with HTML/CSS/JavaScript and a Cloudflare Worker API backed by D1. Node.js 22.13+ is required for local development. No third-party runtime packages are needed.
+A responsive restaurant website and staff dashboard with a Fidalgo-inspired viridian and copper theme, an original botanical line pattern, Jost typography, Cormorant wordmarks, handwritten decorative details, and full-width photography. Built with HTML/CSS/JavaScript and a Cloudflare Worker API backed by D1. Node.js 22.13+ is required for local development. No third-party runtime packages are needed.
 
 ## Features
 
-- `/about/`: standalone Forest Lounge story page, following the supplied PatioTime About reference structure with readable Inter type, alternating photography sections, a photo strip, and working reservation/menu dialogs. Its story, buffet, events and contact information use the same CMS content as the home page.
+- `/about/`: standalone Forest Lounge story page, sharing the Fidalgo-inspired visual system with readable Jost type, alternating photography sections, a photo strip, and working reservation/menu dialogs. Its story, buffet, events and contact information use the same CMS content as the home page.
 
 - Fixed full-width navigation; mobile menu; restaurant story, buffet, events, offers, scroll-snap photo gallery, FAQs and contact sections.
 - Original restaurant photography, logo and 23-page menu sourced from the supplied official website.
