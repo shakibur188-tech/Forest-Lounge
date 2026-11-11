@@ -106,7 +106,8 @@
     "contactTitle": "Your next Forest Lounge moment.",
     "contactText": "A table, a celebration, or a question. Our team would love to hear from you.",
     "reviewImage": "/assets/guests-together.jpg",
-    "reviewCaption": "Our guests say about us"
+    "reviewCaption": "Our guests say about us",
+    "visitImage": "/assets/photo-8.jpg"
   },
   "reviews": [
     {

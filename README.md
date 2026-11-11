@@ -73,3 +73,9 @@ Video footage (illustrative, not filmed at Forest Lounge): Kampus Production on 
 Upcoming events now use a portrait-image horizontal carousel with left/right controls, pointer dragging, touch swipe, keyboard navigation and scroll snapping. Published events can be added under Offers & Events; expired dates are excluded. If no scheduled events or promotions exist, the carousel explicitly shows gathering options by enquiry rather than fabricated event dates.
 
 Reviews use the supplied screenshot's two-panel composition: dining photograph and overlapping script caption on the left, an original faint leaf illustration, translucent THEY SAY label, guest quote, linked attribution and diamond pagination on the right. Reviews rotate only while visible, pause on hover/focus and support reduced motion. The photograph and script caption are editable under Website Content. The guest photograph is illustrative Unsplash footage: https://images.unsplash.com/photo-1528605248644-14dd04022da1 (https://unsplash.com/license).
+
+## Visit Us replacement and event artwork
+
+The homepage testimonial block has been replaced by the supplied Visit Us reference's navy split layout: a Google Maps embed for the Forest Lounge address, an editable side photograph, actual restaurant contacts/hours and a View Map link. Google frame origins are explicitly allowed in the Worker CSP. Previous review content is retained in the CMS rather than deleted.
+
+Event posters are displayed at 1080:1350 (4:5), with the expected upload dimensions labelled in admin. Uploaded originals are cropped in the browser to preserve the layout; their source files are not resampled. The carousel supports mouse wheel / trackpad input, pointer dragging, touch swipe, keyboard arrows and visible left/right controls with a scroll cue. Wheel input is released back to page scrolling at either end.

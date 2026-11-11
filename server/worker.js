@@ -1,7 +1,7 @@
 import { handleApi } from './api.js';
 import { assets } from './generated-assets.js';
 const mime={html:'text/html; charset=utf-8',css:'text/css; charset=utf-8',js:'text/javascript; charset=utf-8',json:'application/json',jpg:'image/jpeg',png:'image/png',svg:'image/svg+xml',mp4:'video/mp4'};
-const csp="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self'; media-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests";
+const csp="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self'; media-src 'self' https:; frame-src https://maps.google.com https://www.google.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests";
 export default {
  async fetch(request,env){
   const url=new URL(request.url);if(url.pathname.startsWith('/api/'))return handleApi(request,env);
