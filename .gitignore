@@ -1,0 +1,9 @@
+dist/
+node_modules/
+.vercel/
+.env*
+!.env.example
+.sites-runtime/
+.wrangler/
+.local/
+outputs/
