@@ -58,3 +58,34 @@ const gallery=$('#gallery');
 function updateGalleryCounter(){const figures=[...gallery.querySelectorAll('figure')];const count=$('#gallery-count');if(!count)return;if(!figures.length){count.textContent='';return;}const position=gallery.scrollLeft;let nearest=0;let distance=Infinity;figures.forEach((figure,index)=>{const d=Math.abs((figure.offsetLeft-figures[0].offsetLeft)-position);if(d<distance){distance=d;nearest=index;}});count.textContent=String(nearest+1).padStart(2,'0')+' / '+String(figures.length).padStart(2,'0');}
 function moveGallery(direction){const figure=gallery.querySelector('figure');if(!figure)return;const gap=parseFloat(getComputedStyle(gallery).gap)||0;gallery.scrollBy({left:direction*(figure.getBoundingClientRect().width+gap),behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});}
 $('#gallery-prev').onclick=()=>moveGallery(-1);$('#gallery-next').onclick=()=>moveGallery(1);gallery.addEventListener('scroll',updateGalleryCounter,{passive:true});gallery.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();moveGallery(e.key==='ArrowRight'?1:-1);}});new MutationObserver(updateGalleryCounter).observe(gallery,{childList:true});
+
+
+// Reveal content once as it enters the viewport; never delay reduced-motion users.
+const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
+const revealTargets = document.querySelectorAll('.about-visual, .about-copy, .manifesto, .dining-index, .buffet-copy, .menu-copy, .menu-feature-image, .events-content, .offers-section, .gallery-title, .faq-section, .visit-info, .visit-heading');
+let revealObserver;
+function configureReveals() {
+ if (revealObserver) revealObserver.disconnect();
+ revealTargets.forEach(element => element.classList.remove('reveal-ready', 'is-visible'));
+ if (motionPreference.matches || !('IntersectionObserver' in window)) return;
+ revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+   if (entry.isIntersecting) {
+    entry.target.classList.add('is-visible');
+    revealObserver.unobserve(entry.target);
+   }
+  });
+ }, { threshold: 0, rootMargin: '0px 0px -35px 0px' });
+ revealTargets.forEach(element => {
+  if (element.getBoundingClientRect().top > window.innerHeight) {
+   element.classList.add('reveal-ready');
+   revealObserver.observe(element);
+  }
+ });
+}
+configureReveals();
+motionPreference.addEventListener('change', configureReveals);
+const scrollProgress = document.createElement('div');
+scrollProgress.className = 'scroll-progress';
+scrollProgress.setAttribute('aria-hidden', 'true');
+document.body.append(scrollProgress);
