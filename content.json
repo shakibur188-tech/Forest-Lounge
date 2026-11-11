@@ -101,10 +101,12 @@
     "storyVideo": "/assets/kitchen-story.mp4",
     "storyPoster": "/assets/kitchen-story-poster.jpg",
     "storyTitle": "A little care, in every moment.",
-    "offersTitle": "Upcoming offers",
-    "reviewsTitle": "Words from our guests",
+    "offersTitle": "Upcoming events",
+    "reviewsTitle": "THEY SAY",
     "contactTitle": "Your next Forest Lounge moment.",
-    "contactText": "A table, a celebration, or a question. Our team would love to hear from you."
+    "contactText": "A table, a celebration, or a question. Our team would love to hear from you.",
+    "reviewImage": "/assets/guests-together.jpg",
+    "reviewCaption": "Our guests say about us"
   },
   "reviews": [
     {
@@ -125,5 +127,6 @@
       "source": "https://theforestlounge.com/en",
       "active": true
     }
-  ]
+  ],
+  "upcomingEvents": []
 }
